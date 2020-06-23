@@ -1,5 +1,16 @@
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
+import colorYellow from "./../assets/icons/color_preview_yellow.svg";
+import colorBlue from "./../assets/icons/color_preview_blue.svg";
+import colorRed from "./../assets/icons/color_preview_red.svg";
+
+const CalendarHeader = styled.div`
+  h2 {
+    margin: 0;
+    margin-bottom: 0.8rem;
+    font-size: 2rem;
+  }
+`;
 
 const CalendarRow = styled.div`
   display: flex;
@@ -39,6 +50,19 @@ const CalendarDay = styled.div`
   }
 `;
 
+const Mood = styled.div`
+  div {
+    display: flex;
+    img {
+      width: 32px;
+      height: auto;
+    }
+    span {
+      margin-left: 0.5rem;
+    }
+  }
+`;
+
 /**
  * The MoodCalender tracks and displays the mood for every day of the month.
  */
@@ -74,6 +98,9 @@ class MoodCalendar extends Component {
   render() {
     return (
       <div>
+        <CalendarHeader>
+          <h2>Moodcalendar</h2>
+        </CalendarHeader>
         {/* Headline with day legend */}
         <CalendarRow>
           <div>M</div>
@@ -118,6 +145,17 @@ class MoodCalendar extends Component {
             </CalendarRow>
           );
         })}
+        <Mood>
+          <div>
+            <img src={colorYellow} /> <span>good / joyful</span>
+          </div>
+          <div>
+            <img src={colorBlue} /> <span>average / normal</span>
+          </div>
+          <div>
+            <img src={colorRed} /> <span>bad / grumpy</span>
+          </div>
+        </Mood>
       </div>
     );
   }
