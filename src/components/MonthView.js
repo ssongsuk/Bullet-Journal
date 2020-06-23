@@ -542,8 +542,12 @@ class MonthView extends Component {
     );
 
     // If the current month doesn't have any days, create the current day
-    if (numDays === 0 && month === new Date().getMonth()) {
-      this.postNewDay(month._id);
+    if (numDays === 0 && this.state.selectedMonth === new Date().getMonth()) {
+      this.createDay(month._id, new Date().getDate(), (newDay) => {
+        let monthData = this.state.monthData;
+        monthData.days = [newDay];
+        this.setState({ monthData });
+      });
     }
   }
 
