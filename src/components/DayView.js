@@ -95,7 +95,7 @@ class DayView extends Component {
     let dateString = `${day}.${month}.${this.props.year}`;
 
     // Get weekday of the given date
-    let date = new Date(this.props.year, month, day);
+    let date = new Date(this.props.year, month - 1, day - 1);
     let weekDay = this.weekDayString(date.getDay());
 
     return (
