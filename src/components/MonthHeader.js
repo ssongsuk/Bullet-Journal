@@ -4,9 +4,15 @@ import styled, { css } from "styled-components";
 import arrowLeft from "./../assets/icons/arrow_left.svg";
 
 const Title = styled.div`
-  span {
+  span,
+  div {
     padding: 0 0.5rem;
   }
+`;
+
+const Credits = styled.div`
+  font-size: 1.4rem;
+  color: #888;
 `;
 
 const MonthControls = styled.div`
@@ -75,6 +81,7 @@ class MonthHeader extends Component {
         {/* Application title */}
         <Title>
           <span>Bullet Journal</span> || <span>{this.props.year}</span>
+          <Credits>By Sudarat Songsuk</Credits>
         </Title>
         <MonthControls>
           <span>

@@ -6,6 +6,14 @@ import MonthHeader from "./MonthHeader";
 import MoodCalendar from "./MoodCalendar";
 import styled from "styled-components";
 
+const JournalHeader = styled.div`
+  h2 {
+    margin: 0;
+    margin-bottom: 1.8rem;
+    font-size: 2rem;
+  }
+`;
+
 const MonthContainer = styled.div`
   padding: 1rem 2rem;
 `;
@@ -17,7 +25,7 @@ const JournalColumns = styled.section`
     &.left {
       flex: 2;
       height: 100%;
-      padding-left: 4rem;
+      padding-left: 12rem;
     }
     &.right {
       flex: 1;
@@ -86,6 +94,9 @@ class MonthView extends Component {
         <JournalColumns>
           {/* Left column with day bullet-points */}
           <div className="left">
+            <JournalHeader>
+              <h2>Journal</h2>
+            </JournalHeader>
             {/* Add day button */}
             <AddDay
               month={this.state.selectedMonth + 1}
@@ -194,6 +205,7 @@ class MonthView extends Component {
                     bulletPoints: [],
                   };
                 }),
+                mood: result.data.mood,
               };
               callBack(month);
             },
